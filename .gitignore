@@ -1,0 +1,156 @@
+# =========================================================
+# OS / System
+# =========================================================
+
+.DS_Store
+Thumbs.db
+
+# =========================================================
+# IDE / Editors
+# =========================================================
+
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+
+# =========================================================
+# Java
+# =========================================================
+
+# Compiled classes
+*.class
+
+# Build directories
+target/
+out/
+build/
+
+# Maven
+.mvn/
+
+# Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Gradle build
+**/build/
+
+# Java logs
+hs_err_pid*
+
+# =========================================================
+# Python
+# =========================================================
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# Mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Python environment files
+.python-version
+
+# =========================================================
+# Go
+# =========================================================
+
+# Go build output
+/bin/
+/build/
+
+# Go test coverage
+coverage.out
+coverage.html
+
+# Go workspace
+go.work.sum
+
+# Go profiling
+*.prof
+
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# =========================================================
+# Environment / Secrets
+# =========================================================
+
+.env
+.env.*
+!.env.example
+
+# =========================================================
+# Logs
+# =========================================================
+
+*.log
+logs/
+
+# =========================================================
+# Temporary Files
+# =========================================================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# =========================================================
+# Local Databases
+# =========================================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================================================
+# Docker
+# =========================================================
+
+docker-compose.override.yml
+
+# =========================================================
+# Misc
+# =========================================================
+
+.DS_Store
