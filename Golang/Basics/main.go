@@ -5,11 +5,6 @@ import (
 	"fmt"
 )
 
-// Declaring variables in GO involve 
-// Single varible creation in Go
-var name string = "InfinityGod-Code"
- 
-
 /* Within the main package there must be main() function, which acts as the entry point of your program */
 
 func main(){
@@ -19,4 +14,5 @@ func main(){
 	// accessing mutiple variables from the function 
 	age, name := shortHandDeclarations()
 	fmt.Println(age, name)
+	pointers()
 }
