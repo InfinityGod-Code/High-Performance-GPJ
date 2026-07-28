@@ -15,4 +15,8 @@ var name string = "InfinityGod-Code"
 func main(){
 	fmt.Println(name)
 	fmt.Println(DEBUG, LogLevel, timeStamp)
+
+	// accessing mutiple variables from the function 
+	age, name := shortHandDeclarations()
+	fmt.Println(age, name)
 }
