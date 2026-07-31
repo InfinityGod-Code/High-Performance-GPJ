@@ -101,14 +101,3 @@ func raceVsMutexVsAtomic() {
 	wg.Wait()
 	fmt.Println("Atomic count (expected", ops, "):", atomicCount)
 }
-
-func main() {
-	fmt.Println("=== Basic Mutex Counter ===")
-	mutexCounter()
-
-	fmt.Println("\n=== RWMutex Demo ===")
-	rwMutexDemo()
-
-	fmt.Println("\n=== Race vs Mutex vs Atomic ===")
-	raceVsMutexVsAtomic()
-}

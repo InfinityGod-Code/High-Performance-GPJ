@@ -21,7 +21,7 @@ func sum(from, to int) int {
 	for i := from; i <= to; i++ {
 		total += i
 	}
-	message := fmt.Sprintf("Inside the sum : %s", total)
+	message := fmt.Sprintf("Inside the sum : %d", total)
 	fmt.Println(message)
 	return total
 }

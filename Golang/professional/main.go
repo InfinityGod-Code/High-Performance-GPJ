@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"professional/channel"
 	"sync"
+	"time"
 )
 
 /*
@@ -28,9 +30,8 @@ func main() {
 	wq.Wait()
 	fmt.Println("Result:", res)
 
-	/*
-		Race conditions =============================================
-	*/
+	fmt.Println("===================== Race Conditions Section ===================")
+
 	count := 0
 
 	fmt.Println(count) // this gives me 3 which is expected
@@ -40,4 +41,32 @@ func main() {
 	go raceConditions(&count)
 	go raceConditions(&count)
 	fmt.Println(count) // this print zero because the value of count might be 0 for all functions running in independent Goroutines:
+
+	fmt.Println("===================== Channel Section ===================")
+
+	// make create channel of type int
+	ch := make(chan int)
+	go channel.Greet(ch)
+
+	// read value from the channel
+	// while reading from channel, tail will be in front of channel
+	temp := <-ch
+	fmt.Println(temp)
+
+	// Channel: Buffered vs Unbuffered
+	channel.BufferedChannelDemo()
+
+	// Channel: Directional (send-only / receive-only)
+	channel.DirectionalDemo()
+
+	// Channel: Range and Close
+	channel.RangeCloseDemo()
+
+	// Channel: Select
+	channel.SelectAll()
+
+	// Channel: Worker Pool (fan-out / fan-in)
+	channel.WorkerPoolDemo()
+
+	time.Sleep(100 * time.Millisecond) // allow goroutines to finish printing
 }
