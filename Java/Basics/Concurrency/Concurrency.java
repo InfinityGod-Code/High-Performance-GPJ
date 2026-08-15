@@ -1,4 +1,4 @@
-package Java.Basics;
+package Java.Basics.Concurrency;
 
 public class Concurrency {
     public static void main(String[] args) {

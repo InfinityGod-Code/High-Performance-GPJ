@@ -1,4 +1,4 @@
-package Java.Basics;
+package Java.Basics.Concurrency;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
@@ -23,7 +23,7 @@ public class Main {
         /*
         The Java ForkJoinPool can distribute the CPU-bound work across multiple worker threads,
         which can execute simultaneously on different CPU cores. */
-        
+
         IntStream.range(0, 10).parallel().forEach(i -> {
             System.out.println("Processing item: " + i + " in thread: " + Thread.currentThread().getName());
             calculate();
