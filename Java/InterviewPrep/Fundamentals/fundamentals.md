@@ -116,7 +116,7 @@ In Java, Thread.sleep(500) pauses the execution of the currently running thread 
 #### Questions 6 : What does Thread.interrupt() actually do?
 Thread.interrupt() does not forcefully stop or kill a running thread. Instead, it sets a boolean flag (the interrupted status) on the target thread, acting as a polite signal requesting the thread to stop what it is doing.
 
-**Case 1 : If the thread is in a blocking call**
+==Case 1 : If the thread is in a blocking call==
 Thread.sleep(), Object.wait(), Thread.join(), etc.
 - It immediately throws an InterruptedException.
 - The interrupted status flag is automatically cleared back to false.
@@ -134,7 +134,7 @@ t.start();
 t.interrupt(); // Wakes up 't' immediately by throwing InterruptedException
 ```
 
-**Case 2 : If the Thread is Actively Running CPU Code**
+==Case 2 : If the Thread is Actively Running CPU Code==
 If the thread is executing normal loops or logic, calling interrupt() has no immediate effect unless the thread manually checks its own flag:
 - The internal interrupted flag is set to true.
 - The thread continues running uninterrupted until it explicitly checks isInterrupted() or Thread.interrupted().
@@ -150,3 +150,4 @@ worker.start();
 // ... later ...
 worker.interrupt(); // Sets flag to true, loop terminates on next check
 ```
+Illutrated Example : [Click](ThreadOrchestrationWithInterrupt.java)
