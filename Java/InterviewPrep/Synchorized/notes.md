@@ -62,7 +62,7 @@ public static synchronized void foo() {
 }
 ```
 
-#### 2.Can two synchronized methods execute simultaneously?
+#### 3.Can two synchronized methods execute simultaneously?
 It depends on the Monitor they lock. If they have same monitor both method cannot be executed at the same time.
 
 **CASE 1 : Same object → Cannot execute simultaneously**
@@ -92,5 +92,43 @@ Account account2 = new Account();
 ```
 In this we have different monitors for the different instances therefore we can execute both at the same time.
 
+#### 3. What happens when a thread tries to acquire an already-held monitor?
+When a thread tries to acquire a monitor that another thread already holds, it blocks and waits until the monitor becomes available. As being described in the above diagram.
+
+#### 4. Can a synchronized method call another synchronized method?
+Yes. A synchronized method can call another synchronized method.The important part is that Java's intrinsic monitor is reentrant.
+Key takeaway : Java's intrinsic monitors are reentrant.In Java, intrinsic monitors (the locking mechanism behind the synchronized keyword) are reentrant. This means if a thread already holds a lock on an object, it can acquire the exact same lock again without blocking itself.
+
+#### 5. What is lock contention?
+Lock contention occurs when multiple threads compete for the same lock/monitor, causing some threads to wait while another thread holds it.Now imagine 100 threads calling, the waiting caused by this competition is **lock contention**.
+As contention increases, you can see:
+
+- Increased latency
+- Reduced throughput
+- More context switching
+- Threads spending more time blocked
+- Poor CPU utilization in some workloads
+
+#### 6.What are the performance implications of excessive synchronization?
+Excessive synchronization can become a performance bottleneck because it limits how much work your threads can execute concurrently.
+1. Reduced concurrency
+2. Lock contention
+3. Context switching overhead
+4. Throughput decreases
 
 
+#### 7. You have a service where 500 threads are frequently blocked on the same synchronized method. How would you diagnose and redesign it?
+Start with thread dumps.
+Take several thread dumps a few seconds apart: ``` jcmd <PID> Thread.print ```
+and check whether they are all waiting on the same monitor/object.You might see:
+```
+"worker-101" BLOCKED
+    - waiting to lock <0x000000076abc123>
+
+"worker-102" BLOCKED
+    - waiting to lock <0x000000076abc123>
+
+"worker-103" BLOCKED
+    - waiting to lock <0x000000076abc123>
+```
+That <0x...> is the important clue: many threads are competing for the same monitor.
