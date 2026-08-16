@@ -151,3 +151,11 @@ worker.start();
 worker.interrupt(); // Sets flag to true, loop terminates on next check
 ```
 Illutrated Example : [Click](ThreadOrchestrationWithInterrupt.java)
+
+#### Questions 7 : What is a daemon thread?
+A daemon thread in Java is a low-priority background thread that provides services to user threads. Its defining characteristic is its relationship with the Java Virtual Machine (JVM) lifecycle: the JVM automatically terminates and exits when all non-daemon (user) threads finish executing, even if daemon threads are still running.
+
+Illutrated Example : [Click](InteractiveEditor/InteractiveTextEditor.java)
+
+#### Questions 8 : What happens when the JVM has only daemon threads remaining?
+When the JVM has only daemon threads remaining, the JVM terminates automatically and the program exits.That's why we use the Daemon thread in the background purposed because it will automatically gets killed once all the main/ non-daemon threads get killed.
