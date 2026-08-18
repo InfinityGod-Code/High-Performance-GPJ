@@ -5,3 +5,10 @@ AWS regions are physical locations across the globe where AWS hosts its infrastr
 The primary purpose of having multiple AZs in each region is to enable customers to host their applications and workloads in a manner that offers high availability, fault tolerance, and scalability. With multiple AZs, you can host copies or replica application resources across these AZs, which ultimately means that you can continue to serve your customers even if there is an outage of one AZ in the given region.
 
 This is all possible because, although each AZ operates independently, they are still connected over high-speed, high-bandwidth, low network latency, and fully redundant, dedicated metro fiber connectivity.
+
+### Service Control Policies 
+When you create an AWS Organization, Service Control Policies (SCPs) are disabled by default.When you enable SCPs, AWS automatically provides a default policy called FullAWSAccess.FullAWSAccess is attached to the organization root.Because SCPs are inherited, it applies to the OUs and accounts underneath the root.
+
+<p align="center">
+  <img src="../diagrams/aws-org.png" alt=Alt" width="50%" height="50%">
+</p>
