@@ -12,3 +12,27 @@ When you create an AWS Organization, Service Control Policies (SCPs) are disable
 <p align="center">
   <img src="../diagrams/aws-org.png" alt=Alt" width="50%" height="50%">
 </p>
+
+**Note** : We can also apply policy at the account level.
+
+If you detach the FullAWSAccess policy from a specific OU or account, you must ensure that you replace it with a policy that specifies the services you want to access and the actions you wish to perform. Otherwise, you cannot perform any actions in the account.
+
+### AWS Landing Zone
+
+Imagine an organization with:
+
+AWS Organization
+│
+├── Production Account
+├── Development Account
+├── Security Account
+├── Logging Account
+├── Networking Account
+└── Audit Account
+
+Setting all of these up consistently by hand becomes difficult. **AWS Landing Zone** provides a blueprint/foundation for setting up this multi-account environment according to AWS best practices.These blueprints will help design and architect a multi-account deployment, offering IAM, governance, data security, and audit logging capabilities.
+
+
+### AWS Control Tower
+
+To help automate the deployment of multiple accounts using these recommended blueprints, AWS offers a service known as AWS Control Tower. This service can automatically implement your landing zone to include the following:
